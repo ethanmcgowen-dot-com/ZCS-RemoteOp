@@ -1,0 +1,22 @@
+/* intelligence.ncs */
+
+// Import necessary modules
+import quantum.neural as neural
+import nachash.io as io
+import nachash.utils as utils
+
+// Define neural network architecture
+network = neural.Network(layers=[10, 20, 10], activation="sigmoid", learning_rate=0.01)
+
+// Train network on dataset
+dataset = io.read_csv("data.csv")
+training_data, test_data = utils.split_data(dataset, test_size=0.2)
+network.train(training_data)
+
+// Save trained network to file
+utils.save_model(network, "model.pkl")
+
+// Make predictions on new data
+new_data = io.read_csv("new_data.csv")
+predictions = network.predict(new_data)
+io.write_csv("predictions.csv", predictions)
