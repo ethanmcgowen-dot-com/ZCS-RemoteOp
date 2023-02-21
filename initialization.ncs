@@ -1,0 +1,52 @@
+// initialize variables
+quantum var a = |0>;
+quantum var b = |1>;
+classical var c = 0;
+
+// apply Hadamard gate to qubit a
+a = H(a);
+
+// apply CNOT gate to qubits a and b
+a, b = CNOT(a, b);
+
+// measure qubit a
+c = MEASURE(a);
+
+// apply Pauli X gate to qubit b
+b = X(b);
+
+// apply phase shift gate to qubit a
+a = R(a, pi/4);
+
+// apply swap gate to qubits a and b
+a, b = SWAP(a, b);
+
+// apply Toffoli gate to qubits a, b, and ancilla qubit
+anc = |0>;
+a, b = TOFFOLI(a, b, anc);
+
+// apply phase kickback gate to qubit a and ancilla qubit
+a, anc = PKB(a, anc, 3*pi/4);
+
+// apply controlled phase shift gate to qubits a and b
+a, b = CR(a, b, pi/3);
+
+// apply Hadamard gate to qubit a
+a = H(a);
+
+// apply CPHASE gate to qubits a and b
+a, b = CPHASE(a, b, pi/2);
+
+// apply measurement to qubits a and b
+c1, c2 = MEASURE(a, b);
+
+// perform classical operations based on measurement results
+if (c1 == 0 and c2 == 0) {
+  print("00");
+} elif (c1 == 0 and c2 == 1) {
+  print("01");
+} elif (c1 == 1 and c2 == 0) {
+  print("10");
+} else {
+  print("11");
+}
