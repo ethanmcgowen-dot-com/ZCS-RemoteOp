@@ -1,0 +1,26 @@
+define interface {
+    // Display target data on a heads-up display
+    display_target_data() {
+        // code for displaying target data
+    }
+
+    // Allow for user input to adjust targeting parameters
+    adjust_targeting_parameters() {
+        // code for adjusting targeting parameters
+    }
+
+    // Activate weapon system when ready to fire
+    activate_weapon_system() {
+        // code for activating weapon system
+    }
+
+    // Display status of weapon system
+    display_weapon_status() {
+        // code for displaying weapon status
+    }
+
+    // Execute emergency shutdown of weapon system
+    emergency_shutdown() {
+        // code for emergency shutdown
+    }
+}
