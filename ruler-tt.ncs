@@ -1,0 +1,16 @@
+def main() {
+  qreg q[3];
+  creg c[3];
+
+  // Set the initial state of the qubits
+  x q[0];
+
+  // Apply a Hadamard gate to each qubit
+  h q;
+
+  // Measure the qubits
+  measure q -> c;
+
+  // Print the measurement results
+  print("Measurement: ", c);
+}
