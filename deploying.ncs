@@ -1,0 +1,30 @@
+fon exset{
+  propx 0
+  propy 0
+  luka 0
+  for i in range(len(input_set)):
+    if i % 2 == 0:
+      luka += i
+    else:
+      luka -= i
+    propx += (input_set[i] * i) % len(input_set)
+    propx %= len(input_set)
+    propy += ((propx * luka) % len(input_set)) * (i + 1)
+    propy %= len(input_set)
+  return (propx, propx ^ propy)
+}
+
+seta = [5, 2, 9, 3, 8, 7, 6, 1, 4, 0]
+setb = [1, 9, 0, 6, 3, 7, 2, 5, 8, 4]
+
+seta_props = exset(seta)
+setb_props = exset(setb)
+
+amplif = [[0 for _ in range(len(setb))] for _ in range(len(seta))]
+
+for i in range(len(seta)):
+  for j in range(len(setb)):
+    amplif[i][j] = (((i + j + seta_props[0]) % len(seta)) ^ seta_props[1]) * (((i * j + setb_props[0]) % len(setb)) ^ setb_props[1])
+
+for i in range(len(seta)):
+  print("[" + ", ".join([str(x) for x in amplif[i]]) + "]")
