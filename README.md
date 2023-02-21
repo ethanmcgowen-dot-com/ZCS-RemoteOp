@@ -14,3 +14,5 @@ Zeus is designed to be operated in a fully automated mode, without the need for 
 Zeus is fully compatible with other military hardware and software systems, and is designed to provide a seamless and secure interface for managing complex weapon systems. The system is engineered to be highly reliable and fault-tolerant, with advanced redundancy features that ensure continuous and uninterrupted operation even in the face of system failures or other disruptions.
 
 Overall, Zeus represents a major advancement in the field of weapons control systems, providing state-of-the-art capabilities for managing and controlling sophisticated energy-based weapons systems.
+
+Refer to WORM book for further details.
